@@ -1,8 +1,8 @@
 'use strict';
 
 const { Schema } = require('mongoose');
-const transomNonceSchema = require('./transomNonceSchema');
-const auditablePlugin = require('@transonjs/transom-mongoose/plugins/auditablePlugin');
+const transomNonceSchema = require('./lib/transomNonceSchema');
+const auditablePlugin = require('@transomjs/transom-mongoose/plugins/auditablePlugin');
 const NonceHandler = require('./lib/nonceHandler');
 
 function TransomNonce() {

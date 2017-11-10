@@ -4,7 +4,7 @@
   "description": "Add Nonce functions to a Transom REST API",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test nyc mocha",
+    "test": "cross-env DEBUG=transom:* NODE_ENV=test nyc mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
@@ -25,15 +25,20 @@
     "node": ">= 6"
   },
   "devDependencies": {
+    "@transomjs/transom-mongoose": "^1.0.2",    
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.1",
+    "debug": "^3.1.0",
     "mocha": "^4.0.1",
     "mocha-lcov-reporter": "^1.3.0",
     "nyc": "^11.2.1",
     "pocket-registry": "^1.1.0",
     "shelljs": "^0.7.8",
     "sinon": "^4.1.1"
+  },
+  "peerDependencies": {
+    "@transomjs/transom-mongoose": "^1.0.2"
   },
   "dependencies": {
     "crypto": "^1.0.1",
