@@ -14,6 +14,11 @@ describe('NonceHandler', function (done) {
     const server = {};
 
     before(function () {
+
+        mongotest.prepareDb('mongodb://localhost/transomnoncetests', {
+            timeout: 10000
+        });
+
         server.registry = new PocketRegistry();
         mongoose.Promise = Promise;
         server.registry.set('mongoose', mongoose);
@@ -22,10 +27,13 @@ describe('NonceHandler', function (done) {
         TransomNonce.initialize(server, options);
     });
 
-    beforeEach(mongotest.prepareDb('mongodb://localhost/transomnoncetests', {
-        timeout: 10000
-    }));
-    afterEach(mongotest.disconnect());
+    after(function() {
+        mongotest.disconnect();
+    });
+    // beforeEach(mongotest.prepareDb('mongodb://localhost/transomnoncetests', {
+    //     timeout: 10000
+    // }));
+    // afterEach(mongotest.disconnect());
 
     it('has been registered with the server', function () {
         const nonceHandler = server.registry.get('transomNonce');
