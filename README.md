@@ -1,12 +1,12 @@
-# transom-nonce
+# transom-mongoose-nonce
 Create and consume one-time-use tokens with a payload within Transom.
 
-[![Build Status](https://travis-ci.org/transomjs/transom-nonce.svg?branch=master)](https://travis-ci.org/transomjs/transom-nonce)
+[![Build Status](https://travis-ci.org/transomjs/transom-mongoose-nonce.svg?branch=master)](https://travis-ci.org/transomjs/transom-mongoose-nonce)
 
 ## Installation
 
 ```bash
-$ npm install transom-nonce
+$ npm install --save @transomjs/transom-mongoose-nonce
 ```
 
 ## Usage
