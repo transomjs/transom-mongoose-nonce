@@ -1,6 +1,6 @@
 {
   "name": "@transomjs/transom-mongoose-nonce",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add Nonce functions to a Transom REST API",
   "main": "index.js",
   "scripts": {
