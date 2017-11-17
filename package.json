@@ -1,5 +1,5 @@
 {
-  "name": "@transomjs/transom-nonce",
+  "name": "@transomjs/transom-mongoose-nonce",
   "version": "1.0.2",
   "description": "Add Nonce functions to a Transom REST API",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/transomjs/transom-nonce.git"
+    "url": "git+https://github.com/transomjs/transom-mongoose-nonce.git"
   },
   "keywords": [
     "nonce",
@@ -18,9 +18,9 @@
   "author": "Mark Voorberg <mark@binaryops.ca>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/transomjs/transom-nonce/issues"
+    "url": "https://github.com/transomjs/transom-mongoose-nonce/issues"
   },
-  "homepage": "https://github.com/transomjs/transom-nonce#readme",
+  "homepage": "https://github.com/transomjs/transom-mongoose-nonce#readme",
   "engines": {
     "node": ">= 6"
   },
