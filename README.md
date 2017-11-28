@@ -31,8 +31,8 @@ This is an example endpoint to create a nonce for the SocketIO handshake, switch
 			// Create the nonce with the current User object as it's payload.
 			const expirySeconds = 5;
 
-            // The NonceHandler is stored in the server Registry.
-            const transomNonce = server.registry.get('transomNonce');
+			// The NonceHandler is stored in the server Registry.
+			const transomNonce = server.registry.get('transomNonce');
 
 			transomNonce.createNonce(req.locals.user, expirySeconds, function (err, nonce) {
 				if (err) {
