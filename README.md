@@ -26,51 +26,51 @@ Created specifically for SocketIO handshaking but useful for many things, the tr
 #### Example: createNonce
 This is an example endpoint to create a nonce for the SocketIO handshake, switching from an AJAX request to a socket connection.
 ```javascript
-	function handleSocketToken(req, res, next) {
-		var p = new Promise(function (resolve, reject) {
-			// Create the nonce with the current User object as it's payload.
-			const expirySeconds = 5;
+function handleSocketToken(req, res, next) {
+	var p = new Promise(function (resolve, reject) {
+		// Create the nonce with the current User object as it's payload.
+		const expirySeconds = 5;
 
-			// The NonceHandler is stored in the server Registry.
-			const transomNonce = server.registry.get('transomNonce');
+		// The NonceHandler is stored in the server Registry.
+		const transomNonce = server.registry.get('transomNonce');
 
-			transomNonce.createNonce(req.locals.user, expirySeconds, function (err, nonce) {
-				if (err) {
-					return reject(err);
-				}
-				resolve(nonce);
-			});
-		}).then(function (nonce) {
-			res.json({
-				token: nonce.token
-			});
-			next();
-		}).catch(function (err) {
-			next(err);
+		transomNonce.createNonce(req.locals.user, expirySeconds, function (err, nonce) {
+			if (err) {
+				return reject(err);
+			}
+			resolve(nonce);
 		});
-	}; 
+	}).then(function (nonce) {
+		res.json({
+			token: nonce.token
+		});
+		next();
+	}).catch(function (err) {
+		next(err);
+	});
+}; 
 ```
 
 #### Example: verifyNonce
 This example middleware used on the SocketIO side, telling the socket connection which user it is for.
 ```javascript
-    this.nonceAuthMiddleware = function (socket, next) {
+function nonceAuthMiddleware(socket, next) {
 
-        // The NonceHandler is stored in the server Registry.
-        const nonce = args.server.registry.get('transomNonce');
+	// Get the NonceHandler from the server Registry.
+	const nonce = args.server.registry.get('transomNonce');
 
-        nonce.verifyNonce(socket.handshake.query.token, function (err, payload) {
-            if (err) {
-                setTimeout(function () {
-                    // Socket Authentication failed. Disconnecting.
-                    socket.disconnect(true);
-                }, 20);
-                return next(new Error(INVALID_TOKEN));
-            }
-            // Store the User object on each verified socket connection,
-            // we can use this later to emit data to specific users.
-            socket.transomUser = payload;
-            return next();
-        })
-    }
+	nonce.verifyNonce(socket.handshake.query.token, function (err, payload) {
+		if (err) {
+			setTimeout(function () {
+				// Socket Authentication failed. Disconnecting.
+				socket.disconnect(true);
+			}, 20);
+			return next(new Error(INVALID_TOKEN));
+		}
+		// Store the User object on each verified socket connection,
+		// we can use this later to emit data to specific users.
+		socket.transomUser = payload;
+		return next();
+	});
+}
 ```
