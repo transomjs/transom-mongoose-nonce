@@ -25,7 +25,7 @@
     "node": ">= 6"
   },
   "devDependencies": {
-    "@transomjs/transom-mongoose": "^1.7.0-0",
+    "@transomjs/transom-mongoose": "^1.7.2",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.1",
