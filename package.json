@@ -40,7 +40,6 @@
     "@transomjs/transom-mongoose": "^1.7.0-0"
   },
   "dependencies": {
-    "crypto": "^1.0.1",
     "debug": "^3.1.0"
   }
 }
