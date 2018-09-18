@@ -4,6 +4,7 @@
   "description": "Add Nonce functions to a Transom REST API",
   "main": "index.js",
   "scripts": {
+    "deploy": "np",
     "test": "cross-env DEBUG=transom:* NODE_ENV=test nyc mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
