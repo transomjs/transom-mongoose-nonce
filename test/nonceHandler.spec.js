@@ -55,7 +55,7 @@ describe('NonceHandler', function () {
         const payload = {
             foo: 123
         };
-        const expirySeconds = 1;
+        const expirySeconds = 10;
         try {
             nonceHandler.createNonce(payload, expirySeconds, function (err, nonce) {
                 expect(err).to.be.null;
